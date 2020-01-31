@@ -1,15 +1,16 @@
-import React from 'react';
-import './Comment.css';
+import React from "react";
+import "./Comment.css";
 
-const Comment = props => {
-  return (
-    <div className="comment-text">
-      <span className="user">{props.comment.username}</span>
-      {' '}
-      <span className="comment">{props.comment.text}</span>
-    </div>
-  );
+const Comment = ({ username, text }) => {
+	// console.log("username", username);
+	// console.log("username", text);
+
+	return (
+		<div className="comment-text">
+			<span className="user">{username}</span>{" "}
+			<span className="comment">{text}</span>
+		</div>
+	);
 };
-
 
 export default Comment;
