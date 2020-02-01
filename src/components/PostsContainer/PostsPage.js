@@ -5,7 +5,7 @@ import "./Posts.css";
 
 // pass the data from App.js down as props then map through the data
 const PostsPage = ({ data }) => {
-	console.log(data);
+	// console.log(data);
 
 	return (
 		<div className="posts-container-wrapper">

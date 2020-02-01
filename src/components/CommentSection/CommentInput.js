@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from "react";
 
-const CommentInput = props => {
-  return (
-    <form className="comment-form" onSubmit={props.submitComment}>
-      <input
-        type="text"
-        value={props.comment}
-        placeholder="Add comment... "
-        onChange={props.changeComment}
-      />
-    </form>
-  );
+const CommentInput = ({ newComments, setNewComments }) => {
+	console.log("new comments", newComments);
+
+	const [newComment, setNewComment] = useState("");
+
+	console.log(newComment);
+
+	return (
+		<form
+			className="comment-form"
+			onSubmit={e => {
+				e.preventDefault();
+				setNewComments([
+					...newComments,
+					{ username: "Sebastian", text: newComment }
+				]);
+			}}
+		>
+			<input
+				type="text"
+				value={newComment}
+				placeholder="Add comment... "
+				onChange={e => setNewComment(e.target.value)}
+			/>
+		</form>
+	);
 };
 
 export default CommentInput;

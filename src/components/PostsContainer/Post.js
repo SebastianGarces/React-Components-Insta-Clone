@@ -11,7 +11,7 @@ const Post = ({
 	post: { username, thumbnailUrl, imageUrl, comments, likes }
 }) => {
 	// set up state for the likes
-	const [postLikes, setPostLikes] = useState(0);
+	const [postLikes, setPostLikes] = useState(likes);
 
 	return (
 		<div className="post-border">
@@ -23,7 +23,7 @@ const Post = ({
 					src={imageUrl}
 				/>
 			</div>
-			<LikeSection likes={likes} />
+			<LikeSection postLikes={postLikes} setPostLikes={setPostLikes} />
 			<CommentSection postId={imageUrl} comments={comments} />
 		</div>
 	);

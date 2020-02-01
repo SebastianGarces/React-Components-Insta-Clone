@@ -6,17 +6,23 @@ import "./Comment.css";
 
 const CommentSection = ({ comments }) => {
 	// Add state for the comments
-	// console.log("comments", comments);
-	// console.log("postId", postId);
-	const [comment, setComment] = useState("");
+	const [newComments, setNewComments] = useState(comments);
+	console.log("initial comments", newComments);
 
 	return (
 		<div>
 			{/* map through the comments data and return the Comment component */}
-			{comments.map(comment => (
-				<Comment username={comment.username} text={comment.text} />
+			{newComments.map((comment, index) => (
+				<Comment
+					username={comment.username}
+					text={comment.text}
+					key={index}
+				/>
 			))}
-			<CommentInput />
+			<CommentInput
+				newComments={newComments}
+				setNewComments={setNewComments}
+			/>
 		</div>
 	);
 };
